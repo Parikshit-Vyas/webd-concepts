@@ -19,6 +19,28 @@ POSTMAN : It doesnt have any pre-flight request .. we can access directly to the
 ## REACT Class Components and LifeCycle Methods
 
 ## React Functional components and react HOOKS
+React hooks provide lifecycle methods functionality to functional components.
+
+
+  ### useRef()
+`useRef()` : creates mutable variable which will not re render the component and directly accessing the DOM. It returns an object. `.current` is property of useRef returned object
+```
+const count = useRef(0);
+
+useEffect(()=>{
+count.current = count.current + 1; 
+});
+
+```
+If we will not useRef .. it will be send into a infinte loop by useEffect() ; 
+
+#### Accessing input data field using useRef() :
+```
+const inp = useRef("");
+
+<Input ref={inp} />
+```
+
 
 ## react-router-dom and routes and route
 For eg navbar is same for all pages .. so instead of loading navbar again and again for diff pages .. we switching only the required component keeping other components same.
@@ -35,6 +57,52 @@ Link : Tag which works as <a> tag for react components
 components for each param. 
 
 `<Route path="/user/**:name**" element={<User/>} > ` and now in  User compoenent `const params = useParams() ` and `const {name} = params` and use this name as variable in div etc.
+
+`useNavigate()` **:** For redirecting to page , go back to prev page functionality etc . `const navigate = useNavigate()` . For redirecting to contact page use this function `navigate('/contact')`.
+
+Go back feature in navigate : `navigate(-1)` 
+
+
+## REST API 
+
+
+
+## Spring Boot 
+
+### Basic back end : 
+Models of items (class ) -> DAO layer (interface + class implementing it .. CRUD operations on DB ) -> service layer ( Business logic ) -> API layer (contains GET , POST , PUT methods)
+
+### Annotation
+Supply extra info to compiler without looking into the class/method . `@RestController` will tell that below class is a REST API  class. `@GetMapping` will tell that below method uses GET request. 
+
+`@SpringBootApplication` : tells compiler that the highlighted class is the spring boot application entry point . This class need to have a `static void main (String[] args)` 
+
+`@Component` : Tells spring container that highlighted class is spring bean/ component.
+
+`@Autowired` : Inject dependency using contructor injection ,setter injection and field injection. 
+```
+// (constructor injection)
+
+private Vegpizza vegpizza;
+
+@Autowired
+public Pizza(){
+this.vegpizza = vegpizza;
+}
+// This tells to inject Vegpizza instance through this constructor 
+```
+
+```
+// (field injection)
+
+@Autowired
+private Vegpizza vegpizza;
+
+```
+
+
+
+
 
 
 
