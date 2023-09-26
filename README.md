@@ -63,7 +63,20 @@ components for each param.
 Go back feature in navigate : `navigate(-1)` 
 
 
-## REST API 
+## REST API ( REST : Representational State Transfer )
+RESTful web service : Service that uses REST API. REST is just a convention of writing APIs.
+
+REST API are stateless and supports caching. It uses `URI : Uniform resource identifier` . `api/v1/icecreams` here `icecreams` is a resource.
+### Request : 
+GET , POST , PUT , DELETE methods. Each request has `endpoint , header , body , operation and parameters` . 
+
+### Response :
+Response body according to request method.It has `status code`.
+```
+2xx : success
+4xx : client side error
+5xx : server side error
+```
 
 
 
