@@ -82,6 +82,9 @@ Response body according to request method.It has `status code`.
 
 ## Spring Boot 
 
+### Bean and IOC container
+Bean can be considered as an object. 
+ 
 ### Basic back end : 
 Models of items (class ) -> DAO layer (interface + class implementing it .. CRUD operations on DB ) -> service layer ( Business logic ) -> API layer (contains GET , POST , PUT methods)
 
@@ -92,14 +95,14 @@ Supply extra info to compiler without looking into the class/method . `@RestCont
 
 `@Component` : Tells spring container that highlighted class is spring bean/ component.
 
-`@Autowired` : Inject dependency using contructor injection ,setter injection and field injection. 
+`@Autowired` : Inject dependency using contructor injection ,setter injection and field injection. Here Pizza is an interface.
 ```
 // (constructor injection)
 
 private Vegpizza vegpizza;
 
 @Autowired
-public Pizza(){
+public PizzaController(){
 this.vegpizza = vegpizza;
 }
 // This tells to inject Vegpizza instance through this constructor 
@@ -112,6 +115,48 @@ this.vegpizza = vegpizza;
 private Vegpizza vegpizza;
 
 ```
+
+`@Qualifier` : Used with @Autowired to avoid confusion when we have two or more beans configured. Suppose Pizza interface has two implementation classes vegPizza and nonvegPizza and we want to initiliase Pizza
+then for injecting nonveg pizza implementation.
+```
+private Pizza pizza;
+@Autowired
+public PizzaController(@Qualifier("nonvegPizza") Pizza pizza){
+this.pizza = pizza;
+}
+```
+`@Primary` : give higher prioirty to a bean when multiple beans are present. Like Pizza interface has two implementations veg and nonveg so if we make veg as `@Primary` , then by default Pizza will use 
+vegPizza implementation.
+
+`@Configuration` : to decalre a configuration class to create spring bean definitions.
+
+`@Bean` : to create a spring bean class.
+```
+
+```
+
+`@Repository` : create spring bean at DAO layer.
+
+`@Service` : create spring bean at service layer.
+
+`@Controller` : create spring bean at controller layer.
+
+`@RestController` : for creating RESTful web serivces.
+
+`@Scope` : different types of scopes like : singleton , prototype , request , session , application and websocket. Singleton : only one bean is created and used everywhere .. this is the default scope. Prototype : new instance is created every time it is requested.
+```
+@Scope(value="singleton")
+public class SingletonBean{
+}
+```
+
+`@ResponseBody` : convert response to json format.
+
+
+
+
+
+
 
 
 
