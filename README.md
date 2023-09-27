@@ -152,12 +152,20 @@ public class SingletonBean{
 
 `@ResponseBody` : convert response to json format.
 
+ `@RequestMapping` : to map web requests to spring controller methods. We can specify our API URI's . URI for class `/api/v1` and URI for methods `/user` so API URI will be `/api/v1/user` .
+
+`@GetMapping` : Maps HTTP GET requests to handler methods.It is just requestMapping's GET method. We can specify API URI here also.
+
+`@PostMapping` : Maps HTTP POST request to handler method
+
+`@RequestBody` : for retrivieng HTTP request body (JSON) and convert it to JAVA Object.
+
+`@ResponseStatus` : to get the status code of response from server.
 
 
 
-
-
-
+### ResponseEntity class
+Used in getting response from server. `ResponseEntity<Book>` means we will get a book object as a response. 
 
 
 
