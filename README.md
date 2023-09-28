@@ -82,8 +82,13 @@ Response body according to request method.It has `status code`.
 
 ## Spring Boot 
 
-### Bean and IOC container
-Bean can be considered as an object. Spring IOC container contains all the beans.
+### POJO (Plain Old JAVA Object) , JAVA Bean and Spring Beans
+POJO is just an object of class nothing else. JAVA Bean has some restrictions (no argument constructor , getters and setter methods , implements Serializable interface) . SpringBean : Any object maintained by Spring(through IOC container / BeanFactory) is spring bean.
+
+### IOC container
+Spring IOC container contains all the beans. Spring IOC container is a pre defined program that we get with Spring and is responsible for object creation , retention of objects in memory , dependency injection of one object into another .. basically it maintains the lifecycle of an object. We need to give two input : Bean and configuration (dependency of beans) . 
+
+ApplicationContext (Interface) : To access IOC container we use this. 
  
 ### Basic back end : 
 Models of items (class ) -> DAO layer (interface + class implementing it .. CRUD operations on DB ) -> service layer ( Business logic ) -> API layer (contains GET , POST , PUT methods)
