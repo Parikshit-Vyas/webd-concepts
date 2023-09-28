@@ -83,7 +83,7 @@ Response body according to request method.It has `status code`.
 ## Spring Boot 
 
 ### Bean and IOC container
-Bean can be considered as an object. 
+Bean can be considered as an object. Spring IOC container contains all the beans.
  
 ### Basic back end : 
 Models of items (class ) -> DAO layer (interface + class implementing it .. CRUD operations on DB ) -> service layer ( Business logic ) -> API layer (contains GET , POST , PUT methods)
@@ -91,7 +91,16 @@ Models of items (class ) -> DAO layer (interface + class implementing it .. CRUD
 ### Annotation
 Supply extra info to compiler without looking into the class/method . `@RestController` will tell that below class is a REST API  class. `@GetMapping` will tell that below method uses GET request. 
 
-`@SpringBootApplication` : tells compiler that the highlighted class is the spring boot application entry point . This class need to have a `static void main (String[] args)` 
+`@SpringBootApplication` : tells compiler that the annotated class is the spring boot application entry point . This class need to have a `static void main (String[] args)` 
+
+* `@SpringBootConfiguration` : Uses `@Configuration` .. 3 configs XML based , Java based and Annotation based . For JAVA @Configuration is used . 
+
+* `@EnableAutoConfiguration` : Enables auto configs for classes 
+
+* `@ComponentScan` : Scan spring components within every subpackages and in base package.
+
+
+
 
 `@Component` : Tells spring container that highlighted class is spring bean/ component.
 
@@ -162,6 +171,11 @@ public class SingletonBean{
 
 `@ResponseStatus` : to get the status code of response from server.
 
+`@PutMapping(value = "/api/v1/{user}")` here user is URI template variable. Helps in creating dynamic URI with variables included.
+
+`@PathVariable` : binds a method argument to URI template variable. `@PathVariable int user` is passed as an argument in mapping handler method. **Path variable and URI template variable should have same name to be binded otherwise it gives error**
+
+`@RequestParam` : to extract query parameters from request and bind them to method arguments. `/api/v1/q?user=ramesh` here user is a query parameter .. anything followed by ? is query parameter.
 
 
 ### ResponseEntity class
