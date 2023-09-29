@@ -1,5 +1,18 @@
 # webd-concepts
 
+## OAuth 2.0 (Credentials are never shared , only access tokens)
+
+Instead of providing username or password , we share key to access the same. We can revoke that key anytime. When 3rd party want our resources they will contact our server , our server will ask us for the permission if it is granted , server gives an access token to 3rd party to access our resources. **Our credentials are never exposed and this access token can be set to expire after a certain time**. It also supports refresh token that can be used once access token is expired.
+
+Suppose we want to connect to spotify using facebook , and use account name and profile picture. `But for all this to work spotify first needs to register its api with fb : Spotify first sends some data to register and fb server sends back client ID and client secret ID to authenticate spotify.` When we click connect spotify will make another authorization request to facebook auth server thne fb auth server will ask me if i want to provide spotify the access. When I say yes , fb auth server sends authorization grant response(with autorization code) to spotify then spotify sends request for access token to fb auth server and fb auth server sends access token (only the permission of account name and profile picture) in response . Spotify then uses that access token in resource request to fb resource server and gets (account name and profile picture ) in response. 
+
+Different Grant Types :
+
+* Authorization code grant
+* implicit grant
+* password grant
+* client credentials grant
+
 ## CORS (Cross origin resource sharing) :
 No 'Access=control-allow-origin' header is present in request. Every request has header with it . When we try to access resources from different domains (origins) .. accessing resources of domain A.com in domain 
 B.com. Header has info about HOST , Method etc .. 
