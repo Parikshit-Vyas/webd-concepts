@@ -13,6 +13,20 @@ Different Grant Types :
 * password grant
 * client credentials grant
 
+## JWT (JSON Web Token) :
+
+
+
+
+## Cookies , Session and Tokens 
+* Cookies : unique identifier (has session id, username and password) for each session and it is randomly generated . It is stored on our system and everytime we visit site again , our browser sends cookie again to check if it is still valid. But if we logout , our cookie is deleted and session invaldiated.
+* Session : Time frame of us being active on site.
+* Token : Similar to access token in OAuth
+
+We visit FB and allow storing login credentials , that credentials are stored in cookies on our system and used when login again. Different websites have different session expiration time : like fb can have months whereas banks have some minutes.
+
+Cookies are not trusted much because they come from client side and not from server's db.
+
 ## CORS (Cross origin resource sharing) :
 No 'Access=control-allow-origin' header is present in request. Every request has header with it . When we try to access resources from different domains (origins) .. accessing resources of domain A.com in domain 
 B.com. Header has info about HOST , Method etc .. 
