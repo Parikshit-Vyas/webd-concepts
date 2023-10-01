@@ -34,6 +34,7 @@ Security concerns :
 * Exposing confidential data to client.
 * Encryption of token is important.
 * JWT remains active even if session logout happens because we dont have anything on server.Can use expTime in header of JWT as a workaround.
+* If someone breaks the encryption method using brute force if encryption method is not strong.
   
 ## Cookies , Session and Tokens 
 * Cookies : unique identifier (has session id, username and password) for each session and it is randomly generated . It is stored on our system and everytime we visit site again , our browser sends cookie again to check if it is still valid. But if we logout , our cookie is deleted and session invaldiated.
