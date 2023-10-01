@@ -21,9 +21,20 @@ Different Grant Types :
 
 ## JWT (JSON Web Token) :
 
+Secure transfer of data in JSON format.All the credentials data is stored in JSON format in JWT on client system and client gives that token everytime it wants to connect to server.Server can verify the data using secret sign key.
+3 parts (all are encoded with base64 .. 3 parts separated by `.`): 
+* Header : Conatins algorithm used for encryption(HS256) and type (here JWT)
+* Payload : Credentials data , lifespan of token etc.
+* Signature : Server signature to verify the JWT client is sending. (It has server secret key)
 
+Process : 
+User sends request to auth server and gets JWT in response (and stores it locally) and then uses that JWT while making API calls to app server or any other related server.
 
-
+Security concerns :
+* Exposing confidential data to client.
+* Encryption of token is important.
+* JWT remains active even if session logout happens because we dont have anything on server.Can use expTime in header of JWT as a workaround.
+  
 ## Cookies , Session and Tokens 
 * Cookies : unique identifier (has session id, username and password) for each session and it is randomly generated . It is stored on our system and everytime we visit site again , our browser sends cookie again to check if it is still valid. But if we logout , our cookie is deleted and session invaldiated.
 * Session : Time frame of us being active on site.
