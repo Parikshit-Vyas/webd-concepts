@@ -25,7 +25,7 @@ Secure transfer of data in JSON format.All the credentials data is stored in JSO
 3 parts (all are encoded with base64 .. 3 parts separated by `.`): 
 * Header : Conatins algorithm used for encryption(HS256) and type (here JWT)
 * Payload : Credentials data , lifespan of token etc.
-* Signature : Server signature to verify the JWT client is sending. (It has server secret key)
+* Signature : Server signature to verify the JWT client is sending. (It has server secret key) . Created by combining encoded header, encoded payload and secret .
 
 Process : 
 User sends request to auth server and gets JWT in response (and stores it locally) and then uses that JWT while making API calls to app server or any other related server.
@@ -35,6 +35,12 @@ Security concerns :
 * Encryption of token is important.
 * JWT remains active even if session logout happens because we dont have anything on server.Can use expTime in header of JWT as a workaround.
 * If someone breaks the encryption method using brute force if encryption method is not strong.
+
+### * Signing algos (for validating token they are not encryption) :
+* RS256 (better right now) : RSA signature with SHA 256 .. asymmetric keyed algo . Identity provider has private key to generate sign and JWT reciever uses public key to validate that sign.
+* HS256 : HMAC with SHA-256 with symmetric keyed hashing algo which uses one secret key.Both identity provider and JWT reciever uses same key to create / validate sign
+
+`HS256 is more efficient than RS256 if we have large no of requests to consider`.
   
 ## Cookies , Session and Tokens 
 * Cookies : unique identifier (has session id, username and password) for each session and it is randomly generated . It is stored on our system and everytime we visit site again , our browser sends cookie again to check if it is still valid. But if we logout , our cookie is deleted and session invaldiated.
