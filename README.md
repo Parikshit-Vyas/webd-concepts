@@ -1,5 +1,11 @@
 # webd-concepts
 
+## Authorization vs Authentication 
+* Authorization : Granting access to 3rd person to use my details.Granting permissions to 3rd person.
+* Authentication : Proving that user is itself (passing username and passowrd to prove Im the only one trying to login).
+
+Authorization becomes necessary when we have to deal with many sites , so we cant create many accounts we authorize 3rd party to use our Google account (Oauth).
+
 ## OAuth 2.0 (Credentials are never shared , only access tokens)
 
 Instead of providing username or password , we share key to access the same. We can revoke that key anytime. When 3rd party want our resources they will contact our server , our server will ask us for the permission if it is granted , server gives an access token to 3rd party to access our resources. **Our credentials are never exposed and this access token can be set to expire after a certain time**. It also supports refresh token that can be used once access token is expired.
