@@ -41,6 +41,9 @@ Security concerns :
 * HS256 : HMAC with SHA-256 with symmetric keyed hashing algo which uses one secret key.Both identity provider and JWT reciever uses same key to create / validate sign
 
 `HS256 is more efficient than RS256 if we have large no of requests to consider`.
+
+UseCase : 
+When we have many servers then once we recieved a JWT from auth server , we can use that JWT to access APIs from any server.. no need to get JWT again , just that every server should have secret key synced so that it can validate that JWT.
   
 ## Cookies , Session and Tokens 
 * Cookies : unique identifier (has session id, username and password) for each session and it is randomly generated . It is stored on our system and everytime we visit site again , our browser sends cookie again to check if it is still valid. But if we logout , our cookie is deleted and session invaldiated.
