@@ -246,6 +246,22 @@ public class SingletonBean{
 ### ResponseEntity class
 Used in getting response from server. `ResponseEntity<Book>` means we will get a book object as a response. 
 
+## WebSockets :
+In HTTP , there is single direction of communication : server speaks , client listens or opposite . But websockets are protocol built on TCP for bidirectional communciation bw server and browser in realtime.
+Usually used in real time apps like stock trading website , chat applications , score card of sports , gaming 
+Web socket is stateful .
+
+Process :
+* Client sends a connection request to server with request of upgrading the communication to websocket.
+* server responds and websocket is established bw them.
+* Now client and server can have bi-directional flow of mssgs and connection closes whenever one side closes the channel.
+
+Pros :
+* Websockets are faster rel to HTTP as http sends a lot of data in each header.
+  
+Cons :
+* Not easily horizontally scalable im comaprison to HTTP server , as with http connection any server out of many can fulfill the request of client as each message is sort of transaction but now in websockets it is like a phone call and if server drops the call , client loses it too .
+
 
 
 
