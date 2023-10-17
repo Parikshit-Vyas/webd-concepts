@@ -246,6 +246,11 @@ public class SingletonBean{
 ### ResponseEntity class
 Used in getting response from server. `ResponseEntity<Book>` means we will get a book object as a response. 
 
+### Actuator :
+service monitoring( health , HTTP tracing etc) and managment for spring boot applications.
+
+
+
 ## WebSockets :
 In HTTP , there is single direction of communication : server speaks , client listens or opposite . But websockets are protocol built on TCP for bidirectional communciation bw server and browser in realtime.
 Usually used in real time apps like stock trading website , chat applications , score card of sports , gaming 
